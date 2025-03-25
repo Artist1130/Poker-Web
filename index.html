@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>德州扑克游戏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: #1a6c35;
+            color: white;
+        }
+
+        .game-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .poker-table {
+            background: #2d8a47;
+            border-radius: 150px;
+            padding: 40px;
+            position: relative;
+            height: 600px;
+            border: 15px solid #734d26;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .community-cards {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+        }
+
+        .player-position {
+            position: absolute;
+            width: 150px;
+            height: 100px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .player-position.bottom {
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .player-position.top {
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .player-position.left {
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .player-position.right {
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background: #d4af37;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #c4a137;
+        }
+
+        .pot {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .player-info {
+            margin-bottom: 10px;
+        }
+
+        .player-cards {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .card {
+            width: 40px;
+            height: 60px;
+            background: white;
+            border-radius: 5px;
+            display: inline-block;
+            color: black;
+            line-height: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="poker-table">
+            <!-- 公共牌区域 -->
+            <div class="community-cards">
+                <div class="card">A♠</div>
+                <div class="card">K♥</div>
+                <div class="card">Q♦</div>
+                <div class="card">J♣</div>
+                <div class="card">10♠</div>
+            </div>
+
+            <!-- 奖池 -->
+            <div class="pot">
+                奖池: $1000
+            </div>
+
+            <!-- 玩家位置 -->
+            <div class="player-position bottom">
+                <div class="player-info">你 ($500)</div>
+                <div class="player-cards">
+                    <div class="card">A♥</div>
+                    <div class="card">K♠</div>
+                </div>
+            </div>
+
+            <div class="player-position top">
+                <div class="player-info">玩家2 ($800)</div>
+                <div class="player-cards">
+                    <div class="card">?</div>
+                    <div class="card">?</div>
+                </div>
+            </div>
+
+            <div class="player-position left">
+                <div class="player-info">玩家3 ($600)</div>
+                <div class="player-cards">
+                    <div class="card">?</div>
+                    <div class="card">?</div>
+                </div>
+            </div>
+
+            <div class="player-position right">
+                <div class="player-info">玩家4 ($700)</div>
+                <div class="player-cards">
+                    <div class="card">?</div>
+                    <div class="card">?</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 控制按钮 -->
+        <div class="controls">
+            <button>弃牌</button>
+            <button>跟注</button>
+            <button>加注</button>
+            <button>全下</button>
+        </div>
+    </div>
+</body>
+</html>
